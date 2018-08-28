@@ -35,26 +35,28 @@ if (cart.length === 0) {
     return 'Your shopping cart is empty.'
 }
 for (var i = 0; i < cart.length; i++) {
-var itemListing = `${cart[i].itemName} at $${cart[i].itemPrice}`
- 
+
  if (cart.length === 1) {
-   list.push(`In your cart, you have ${itemListing}.`) 
+   list.push(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`) 
 }
 
  else if (cart.length === 2) {
-   list.push(`In your cart, you have ${itemListing} and ${itemListing}.`)
+   list.push(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`)
 }
 
 else{
-  list.push(`In your cart, you have ${itemListing}, ${itemListing}, and ${itemListing}.`)
-}
+  list.push(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`)
 }
 return list;
 }
+}
+// Needs to be explained much further. 
+
 
 function total() {
   for (var i = 0; i < cart.length; i++){
     
+    getCart()[i].itemPrice
     return 
   }
 }
@@ -74,14 +76,16 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
  function emptyCart() {
-    var cart = [];
-    return cart 
+   
+    getCart() 
  }
   if (cardNumber > 0) {
+  cart = [];
   return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+   
     }
   else {
     return "Sorry, we don't have a credit card on file for you."
   }
-  console.log(emptyCart())  
+    
 }
