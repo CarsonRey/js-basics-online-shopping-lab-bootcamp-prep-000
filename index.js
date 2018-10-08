@@ -41,15 +41,17 @@ for (var i = 0; i < cart.length; i++) {
 }
 
  else if (cart.length === 2) {
-   list.push(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`)
+   list.push(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`)
 }
 
-else{
-  list.push(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`)
+else {
+  list.push(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`)
+}
+
 }
 return list;
 }
-}
+
 // Needs to be explained much further. 
 
 
@@ -58,6 +60,7 @@ function total() {
     
     getCart()[i].itemPrice
     return 
+    return cart.sum[newItem.itemPrice[i]]
   }
 }
 
@@ -67,11 +70,7 @@ function removeFromCart(item) {
   if (item === undefined){
     return `That item is not in your cart.`
   }
-  else {
-    cart.splice(item[i], 1)
-    return cart
-  }
-  }
+}
 }
 
 function placeOrder(cardNumber) {
@@ -82,10 +81,11 @@ function placeOrder(cardNumber) {
   if (cardNumber > 0) {
   cart = [];
   return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
-   
-    }
+  }
   else {
     return "Sorry, we don't have a credit card on file for you."
   }
-    
+
+    cart.splice(0, -1)
+    return cart
 }
